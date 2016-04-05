@@ -1,0 +1,62 @@
+1> 下载Java jdk:
+
+下载地址：http://www./softs/75615.html
+
+我这里用的是：jdk-7u17-linux-i586.tar.gz
+
+PS：这个是需要登录才能下载的，所以建议注册后，登录进去先下载到本地，然后再从本地计算机传到VM上去。
+
+2> 下载完成后，解压jdk：
+
+tar -zxvf jdk-7u17-linux-i586.tar.gz
+
+3> 解压完成后，配置环境变量：
+
+vim /etc/profile
+
+在打开的文件的末尾，增加如下代码：
+
+JAVA_HOME=/usr/local/jdk1.7.0_17
+
+PATH=$JAVA_HOME/bin:$PATHCLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jarexport JAVA_HOMEexport PATHexport CLASSPATH
+
+PS：只需将JAVA_HOME的路径改一下即可，改成刚才解压后jdk的目录目录即可，我的是把jdk压缩包放在/usr/local目录下了，然后直接
+
+在这里解压的，所以解压后的包也就直接在该目录下了【jdk1.7.0_17】,所以我这里JAVA_HOME的路径为 "/usl/local/jdk1.7.0_17"
+
+4> 上面的步骤执行完成后，执行下如下命令
+
+source /etc/profile
+
+或者重启下linux ，配置才可生效
+
+5> 执行完上面的步骤，下一步就是看一下java jdk是否安装成功，执行下如下命令
+
+java -version
+
+我这里执行后，会输出如下内容：
+
+[root@localhost ~]# java -version
+java version "1.7.0_17"Java(TM) SE Runtime Environment (build 1.7.0_17-b02)Java HotSpot(TM) Client VM (build 23.7-b01, mixed mode)
+
+[root@localhost ~]#
+
+说明jdk安装成功，这里的版本是1.7
+
+支持jdk的安装到此结束，下一步是cassandra的安装
+
+1> 下载Cassandra：
+地址：http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.2.4/apache-cassandra-1.2.4-src.tar.gz
+我这里用的版本是：apache-cassandra-1.2.4-bin.tar.gz
+2> 下载完成后，直接解压：
+
+tar -zxvf apache-cassandra-1.2.4-bin.tar.gz
+
+解压完成后，得到如下目录：apache-cassandra-1.2.4
+进入该目录下的bin目录，直接启动Cassandra即可：
+
+cd apache-cassandra-1.2.4/bin
+
+./cassandra -f 【启动cassandra】
+
+启动后，会输出一大堆的代码，如下，表明Cassandra启动成功：
